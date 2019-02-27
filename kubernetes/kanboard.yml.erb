@@ -61,6 +61,18 @@ spec:
           - backend:
               serviceName: kanboard-service
               servicePort: 80
+    - host: kanboard.ocf.io
+      http:
+        paths:
+          - backend:
+              serviceName: kanboard-service
+              servicePort: 80
+    - host: kanboard.dev-kubernetes.ocf.berkeley.edu
+      http:
+        paths:
+          - backend:
+              serviceName: kanboard-service
+              servicePort: 80
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
