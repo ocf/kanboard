@@ -16,3 +16,6 @@ define('LDAP_GROUP_BASE_DN', 'ou=Group,dc=OCF,dc=Berkeley,dc=EDU');
 define('LDAP_GROUP_FILTER', '(&(objectClass=posixGroup)(cn=%s*))');
 define('LDAP_GROUP_USER_FILTER', '(&(objectClass=posixGroup)(memberUid=%s))');
 define('LDAP_GROUP_ADMIN_DN', 'cn=ocfroot,ou=Group,dc=OCF,dc=Berkeley,dc=EDU');
+
+# PLUGINS ARE A POTENTIAL SECURITY RISK, ocfroot please be careful
+define('PLUGIN_INSTALLER', true);
