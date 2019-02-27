@@ -1,0 +1,87 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kanboard-service
+spec:
+  selector:
+    app: kanboard
+  ports:
+    - port: 80
+      targetPort: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kanboard-deployment
+  labels:
+    app: kanboard
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kanboard
+  template:
+    metadata:
+      labels:
+        app: kanboard
+    spec:
+      containers:
+        - name: kanboard
+          image: "docker.ocf.berkeley.edu/kanboard:<%= version %>"
+          resources:
+            limits:
+              memory: 512Mi
+              cpu: 175m
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - mountPath: /var/www/app/data
+              name: data
+            - mountPath: /var/www/app/plugins
+              name: plugins
+            # there is no volume for ssl because we don't use ssl within the container
+
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: kanboard-data-pvc
+        - name: plugins
+          persistentVolumeClaim:
+            claimName: kanboard-plugins-pvc
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: kanboard-ingress
+spec:
+  rules:
+    - host: kanboard.ocf.berkeley.edu
+      http:
+        paths:
+          - backend:
+              serviceName: kanboard-service
+              servicePort: 80
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: kanboard-data-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 30Gi
+  volumeName: "kanboard-data-pv"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: kanboard-plugins-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 30Gi
+  volumeName: "kanboard-plugins-pv"
