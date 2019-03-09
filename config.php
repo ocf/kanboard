@@ -17,5 +17,11 @@ define('LDAP_GROUP_FILTER', '(&(objectClass=posixGroup)(cn=%s*))');
 define('LDAP_GROUP_USER_FILTER', '(&(objectClass=posixGroup)(memberUid=%s))');
 define('LDAP_GROUP_ADMIN_DN', 'cn=ocfroot,ou=Group,dc=OCF,dc=Berkeley,dc=EDU');
 
+define('MAIL_TRANSPORT', 'smtp');
+define('MAIL_SMTP_HOSTNAME', 'smtp.ocf.berkeley.edu');
+define('MAIL_SMTP_PORT', 25);
+define('MAIL_SMTP_ENCRYPTION', 'tls');
+define('MAIL_FROM', 'ocfkanboard@ocf.berkeley.edu');
+
 # PLUGINS ARE A POTENTIAL SECURITY RISK, ocfroot please be careful
 define('PLUGIN_INSTALLER', true);
