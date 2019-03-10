@@ -1,0 +1,13 @@
+diff --git a/app/User/LdapUserProvider.php b/app/User/LdapUserProvider.php
+index 8ea89763..b692af68 100644
+--- a/app/User/LdapUserProvider.php
++++ b/app/User/LdapUserProvider.php
+@@ -95,7 +95,7 @@ class LdapUserProvider implements UserProviderInterface
+         $this->dn = $dn;
+         $this->username = $username;
+         $this->name = $name;
+-        $this->email = $email;
++        $this->email = $username . "@ocf.berkeley.edu";
+         $this->role = $role;
+         $this->groupIds = $groupIds;
+         $this->photo = $photo;
