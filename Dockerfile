@@ -1,4 +1,4 @@
-FROM kanboard/kanboard:v1.2.8
+FROM kanboard/kanboard:v1.2.9
 
 # copy OCF config file
 COPY config.php /var/www/app/config.php
