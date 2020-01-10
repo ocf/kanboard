@@ -6,17 +6,8 @@ define('DB_USERNAME', 'ocfkanboard');
 define('DB_HOSTNAME', 'mysql.ocf.berkeley.edu');
 define('DB_NAME', 'ocfkanboard');
 
-define('LDAP_AUTH', true);
-define('LDAP_SERVER', 'ldaps://ldap.ocf.berkeley.edu');
-define('LDAP_USER_FILTER', 'uid=%s');
-define('LDAP_USER_BASE_DN', 'ou=People,dc=OCF,dc=Berkeley,dc=EDU');
-define('LDAP_USER_ATTRIBUTE_FULLNAME', 'uid');
-
-define('LDAP_GROUP_PROVIDER', true);
-define('LDAP_GROUP_BASE_DN', 'ou=Group,dc=OCF,dc=Berkeley,dc=EDU');
-define('LDAP_GROUP_FILTER', '(&(objectClass=posixGroup)(cn=%s*))');
-define('LDAP_GROUP_USER_FILTER', '(&(objectClass=posixGroup)(memberUid=%s))');
-define('LDAP_GROUP_ADMIN_DN', 'cn=ocfroot,ou=Group,dc=OCF,dc=Berkeley,dc=EDU');
+define('OAUTH_GROUP_ADMIN', 'ocfroot');
+define('HIDE_LOGIN_FORM', true);
 
 define('MAIL_TRANSPORT', 'smtp');
 define('MAIL_SMTP_HOSTNAME', 'smtp.ocf.berkeley.edu');
