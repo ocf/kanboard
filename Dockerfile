@@ -3,6 +3,9 @@ FROM kanboard/kanboard:v1.2.14
 # copy OCF config file
 COPY config.php /var/www/app/config.php
 
+# install plugins
+ADD plugins /var/www/app/plugins/
+
 # patch to use OCF emails
 WORKDIR "/var/www/app"
 COPY ocf-email.patch .

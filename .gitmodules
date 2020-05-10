@@ -1,0 +1,6 @@
+[submodule "plugins/WeKanboard"]
+	path = plugins/WeKanboard
+	url = https://github.com/bw-hro/WeKanboard
+[submodule "plugins/Customizer"]
+	path = plugins/Customizer
+	url = https://github.com/creecros/Customizer
