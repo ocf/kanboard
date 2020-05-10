@@ -24,5 +24,5 @@ define('MAIL_SMTP_PORT', 25);
 define('MAIL_SMTP_ENCRYPTION', 'tls');
 define('MAIL_FROM', 'ocfkanboard@ocf.berkeley.edu');
 
-# PLUGINS ARE A POTENTIAL SECURITY RISK, ocfroot please be careful
-define('PLUGIN_INSTALLER', true);
+# 2020-05-10: Plugins are now managed in git.
+define('PLUGIN_INSTALLER', false);
