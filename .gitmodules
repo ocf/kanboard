@@ -4,3 +4,12 @@
 [submodule "plugins/Customizer"]
 	path = plugins/Customizer
 	url = https://github.com/creecros/Customizer
+[submodule "plugins/plugin-gravatar"]
+	path = plugins/plugin-gravatar
+	url = https://github.com/kanboard/plugin-gravatar
+[submodule "plugins/plugin-oauth2"]
+	path = plugins/plugin-oauth2
+	url = https://github.com/ocf/plugin-oauth2.git
+[submodule "plugins/Group_assign"]
+	path = plugins/Group_assign
+	url = https://github.com/creecros/Group_assign.git
