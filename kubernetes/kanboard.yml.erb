@@ -37,17 +37,12 @@ spec:
           volumeMounts:
             - mountPath: /var/www/app/data
               name: data
-            - mountPath: /var/www/app/plugins
-              name: plugins
             # there is no volume for ssl because we don't use ssl within the container
 
       volumes:
         - name: data
           persistentVolumeClaim:
             claimName: kanboard-data-pvc
-        - name: plugins
-          persistentVolumeClaim:
-            claimName: kanboard-plugins-pvc
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -73,15 +68,3 @@ spec:
     requests:
       storage: 30Gi
   volumeName: "kanboard-data-pv"
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: kanboard-plugins-pvc
-spec:
-  accessModes:
-    - ReadWriteMany
-  resources:
-    requests:
-      storage: 30Gi
-  volumeName: "kanboard-plugins-pv"
