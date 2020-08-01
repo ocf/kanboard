@@ -1,5 +1,5 @@
 servicePipeline(
-    upstreamProjects: ['kubernetes-deploy/master'],
+    upstreamProjects: [],
 )
 
 // vim: ft=groovy
