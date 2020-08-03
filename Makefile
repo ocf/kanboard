@@ -12,7 +12,7 @@ dev: cook-image
 
 .PHONY: cook-image
 cook-image:
-	docker build --build-arg grafana_version=v$(KB_VERSION) --pull -t $(DOCKER_TAG) .
+	docker build --build-arg kanboard_version=v$(KB_VERSION) --pull -t $(DOCKER_TAG) .
 
 .PHONY: push-image
 push-image:
